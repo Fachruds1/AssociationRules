@@ -1,0 +1,40 @@
+#Load Package
+library(arules)
+library(plyr)
+library(arulesViz)
+
+#Import Dataset
+retail <- read_csv("~/Personal/Dibimbing/batch5/day2/Groceries_dataset.csv")
+str(retail)
+
+#check NA values
+cbind(
+  lapply(
+    lapply(retail, is.na),
+    sum)
+)
+
+#Read Dataset as Transaction
+transaksi <- read.transactions("~/Personal/Dibimbing/batch5/day2/Groceries_dataset.csv", format="single", sep=",", cols=c(1,3), skip=1)
+
+#Item List
+transaksi@itemInfo
+
+#ID Transaction List
+transaksi@itemsetInfo
+
+#Plot Top 10 Best Seller
+itemFrequencyPlot(transaksi, topN=10)
+
+#Association Rule to get set of rule
+basket <- apriori(transaksi, parameter = list(supp = 0.01, confidence = 0.5, target="rules"))
+summary(basket)
+
+#Top 10 Set of Rule
+inspect(basket[1:10])
+
+#Scatter Plot Top 10 Set of Rule
+plot(basket[1:10], jitter=0)
+
+#Graph Plot Top 10 Set of Rule
+plot(basket[1:10], method="graph")
