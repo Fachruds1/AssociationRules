@@ -2,6 +2,9 @@
 As we know in retail have many various item product sales and high growth new products for several time following the demand of market. This is good point for development sales and retail , so that it continue to grower and bigger. but it becomes a problem when there are more and more product items and the sales of some products are not selling too well so that it affects inventory problems. therefore innovation is needed in order to overcome the problem of storing product stock and also increase product sales.
 One of the solution is innovation in the retail sector is to look for associations or relationships between products from transaction data sales which aims to products are packaged and sold together and give someone a product recommendation and more innovation to solve that problem. This process is an analytical process called Market Basket Analysis (MBA).
 
+# About
+This project is focused on optimize sales market and inventory of product in retail.
+
 # Market Basket Analysis
 Market Basket Analysis aims to find product package recommendations — based on unique patterns from customer transaction data — that can increase sales. The algorithm that can be used in R to do this MBA is apriori from the arules package . Arules is an abbreviation of association rules — a category of machine learning.
 Principle of this model is actually looking for products that have a strong relationship or association in the transaction. The “strong” relationship here will be seen based on the proportion of the number of occurrences of the product combination that will be packaged with the total transactions.
